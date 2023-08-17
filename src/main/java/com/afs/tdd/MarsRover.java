@@ -9,6 +9,11 @@ public class MarsRover {
     }
 
     public void executeCommand(Command givenCommand) {
+        if (givenCommand == Command.MOVE) {
+            if (location.getDirection() == Direction.NORTH) {
+                location.setY(location.getY() +1);
+            }
+        }
 
     }
 

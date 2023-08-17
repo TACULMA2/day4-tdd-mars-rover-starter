@@ -5,16 +5,24 @@ public class Location {
         return x;
     }
 
+    public void setX(int x) {
+        this.x = x;
+    }
+
     public int getY() {
         return y;
+    }
+
+    public void setY(int y) {
+        this.y = y;
     }
 
     public Direction getDirection() {
         return direction;
     }
 
-    private final int x;
-    private final int y;
+    private int x;
+    private int y;
     private final Direction direction;
 
     public Location(int x, int y, Direction direction) {
