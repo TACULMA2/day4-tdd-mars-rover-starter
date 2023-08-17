@@ -23,7 +23,11 @@ public class Location {
 
     private int x;
     private int y;
-    private final Direction direction;
+    private Direction direction;
+
+    public void setDirection(Direction direction) {
+        this.direction = direction;
+    }
 
     public Location(int x, int y, Direction direction) {
         this.x = x;
