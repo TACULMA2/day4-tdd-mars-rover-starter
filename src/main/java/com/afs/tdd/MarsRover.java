@@ -45,9 +45,7 @@ public class MarsRover {
     }
 
     public void executeBatchCommands(List<Command> commands) {
-        for (Command command : commands) {
-            executeCommand(command);
-        }
+        commands.forEach(this::executeCommand);
     }
 
     public Location getCurrentLocation() {

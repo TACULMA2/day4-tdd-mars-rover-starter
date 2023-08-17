@@ -1,18 +1,23 @@
 package com.afs.tdd;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.List;
 
 class MarsRoverTest {
+    private MarsRover marsRover;
+    @BeforeEach
+    void setUp() {
+        Location initialLocation = new Location(0, 0, Direction.NORTH);
+        marsRover = new MarsRover(initialLocation);
+    }
     @Test
     void should_change_to_location_0_1_N_when_executeCommand_given_0_0_North_and_command_Move() {
         // Given
-        Location initialLocation = new Location(0, 0, Direction.NORTH);
         Command givenCommand = Command.MOVE;
-        MarsRover marsRover = new MarsRover(initialLocation);
         // When
         marsRover.executeCommand(givenCommand);
         Location currentLocation = marsRover.getCurrentLocation();
@@ -27,7 +32,7 @@ class MarsRoverTest {
         // Given
         Location initialLocation = new Location(0, 0, Direction.SOUTH);
         Command givenCommand = Command.MOVE;
-        MarsRover marsRover = new MarsRover(initialLocation);
+        marsRover = new MarsRover(initialLocation);
         // When
         marsRover.executeCommand(givenCommand);
         Location currentLocation = marsRover.getCurrentLocation();
@@ -70,9 +75,7 @@ class MarsRoverTest {
     @Test
     void should_change_to_location_0_0_W_when_executeCommand_given_0_0_North_and_command_Turn_Left() {
         // Given
-        Location initialLocation = new Location(0, 0, Direction.NORTH);
         Command givenCommand = Command.TURN_LEFT;
-        MarsRover marsRover = new MarsRover(initialLocation);
         // When
         marsRover.executeCommand(givenCommand);
         Location currentLocation = marsRover.getCurrentLocation();
@@ -130,9 +133,7 @@ class MarsRoverTest {
     @Test
     void should_change_to_location_0_0_E_when_executeCommand_given_0_0_North_and_command_Turn_Right() {
         // Given
-        Location initialLocation = new Location(0, 0, Direction.NORTH);
         Command givenCommand = Command.TURN_RIGHT;
-        MarsRover marsRover = new MarsRover(initialLocation);
         // When
         marsRover.executeCommand(givenCommand);
         Location currentLocation = marsRover.getCurrentLocation();
@@ -190,9 +191,7 @@ class MarsRoverTest {
     @Test
     void should_change_to_location_negative_1_1_0_North_when_executeCommand_given_0_0_North() {
         // Given
-        Location initialLocation = new Location(0, 0, Direction.NORTH);
         List<Command> commands = Arrays.asList(Command.MOVE, Command.TURN_LEFT, Command.MOVE, Command.TURN_RIGHT);
-        MarsRover marsRover = new MarsRover(initialLocation);
         // When
         marsRover.executeBatchCommands(commands);
         Location currentLocation = marsRover.getCurrentLocation();
