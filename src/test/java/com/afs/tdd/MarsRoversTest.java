@@ -20,7 +20,7 @@ class MarsRoverTest {
     }
 
     @Test
-    void should_change_to_location_0_negative_1_N_when_executeCommand_given_0_0_South_and_command_Move() {
+    void should_change_to_location_0_negative_1_S_when_executeCommand_given_0_0_South_and_command_Move() {
         // Given
         Location initialLocation = new Location(0, 0, Direction.SOUTH);
         Command givenCommand = Command.MOVE;
